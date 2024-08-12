@@ -1,0 +1,17 @@
+.DS_Store
+.atom/
+.idea/*
+.vscode/*
+
+# https://dart.dev/guides/libraries/private-files
+# Files and directories created by pub
+.dart_tool/
+.packages
+pubspec.lock
+
+# Local Mason Files
+.mason/
+build/
+
+# IntelliJ and Android Studio
+.idea/

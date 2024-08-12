@@ -1,0 +1,16 @@
+name: mason_bricks
+description: Brick for creating feature structure from template.
+version: 1.0.0
+repository: https://github.com/mentallyunstable/mason_bricks
+
+environment:
+  sdk: ^3.0.0
+
+# Add regular dependencies here.
+dependencies:
+  mason_cli: ^0.1.0-dev.54
+  # path: ^1.8.0
+
+dev_dependencies:
+  lints: ^2.1.0
+  test: ^1.24.0
