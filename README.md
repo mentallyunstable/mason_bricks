@@ -14,11 +14,13 @@ A collection of bricks that enable developers to be more productive when writing
 
 ## Bricks 🧱
 
-Will be available in future releases.
+Brick  | URL
+------------- | -------------
+md_feature  | https://github.com/mentallyunstable/mason_bricks/tree/main/lib/md_feature
 
 ## Documentation
 
-Will be available in future releases.
+[md_feature](https://github.com/mentallyunstable/mason_bricks/tree/main/lib/md_feature) - brick for creating new feature from template, refer to documentation from above table
 
 ## Contributing
 
