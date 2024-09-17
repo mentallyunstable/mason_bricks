@@ -60,9 +60,10 @@ Future<void> run(HookContext context) async {
     );
   }
   // Call build_runner generation
+  final dartExecutable = '${useFvm ? 'fvm ' : ''}dart';
   logger.info('Run build runner...');
   await Process.run(
-    'dart',
+    dartExecutable,
     ['run', 'build_runner', 'build', '--delete-conflicting-outputs'],
     runInShell: true,
     workingDirectory: root,
