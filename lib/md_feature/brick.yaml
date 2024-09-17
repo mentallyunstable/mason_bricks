@@ -6,7 +6,7 @@ repository: https://github.com/mentallyunstable/mason_bricks
 # The following defines the version and build number for your brick.
 # A version number is three numbers separated by dots, like 1.2.34
 # followed by an optional build number (separated by a +).
-version: 1.0.0+1
+version: 1.0.1+2
 
 # The following defines the environment for the current brick.
 # It includes the version of mason that the brick requires.
@@ -36,3 +36,7 @@ vars:
     type: string
     description: Path to feature directory
     prompt: What is the feature directory path?
+  use_fvm:
+    type: boolean
+    description: Use fvm to run commands
+    prompt: Do you want to use fvm to run commands?

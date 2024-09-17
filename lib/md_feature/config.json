@@ -1,4 +1,5 @@
 {
   "project_name": "example_project",
-  "path_to_feature": "src/features"
+  "path_to_feature": "src/features",
+  "use_fvm": "true"
 }

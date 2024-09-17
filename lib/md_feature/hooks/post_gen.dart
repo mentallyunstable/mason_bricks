@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:mason/mason.dart';
 
 import 'dependencies.dart';
+import 'variables.dart';
 
 Future<void> run(HookContext context) async {
   final logger = context.logger;
@@ -12,45 +13,62 @@ Future<void> run(HookContext context) async {
   final libIndex = folders.indexWhere((folder) => folder == 'lib');
   final root = folders.sublist(0, libIndex).join('/').toString();
 
+  final useFvm = context.vars[Variables.useFvmVar];
+
   // Add required dependencies
   if (logger.confirm('Do you want to add required dependencies?')) {
+    final flutterExecutable = '${useFvm ? 'fvm ' : ''}flutter';
+
     logger.info('Add required dependencies... $root');
     await Process.run(
-      'flutter',
+      flutterExecutable,
       ['pub', 'add', ...Dependencies.devDependencies, '-d'],
       runInShell: true,
       workingDirectory: root,
+    ).then(
+      (result) {
+        stdout.write(result.stdout);
+        stdout.write(result.stderr);
+        return result.exitCode;
+      },
     );
-    // TODO: resolve exceptions when trying to log process output
-    // await stdout.addStream(devDependenciesProcess.stdout);
-    // await stderr.addStream(devDependenciesProcess.stderr);
 
     await Process.run(
-      'flutter',
+      flutterExecutable,
       ['pub', 'add', ...Dependencies.dependencies],
+    ).then(
+      (result) {
+        stdout.write(result.stdout);
+        stdout.write(result.stderr);
+        return result.exitCode;
+      },
     );
-    // await stdout.addStream(dependenciesProcess.stdout);
-    // await stderr.addStream(dependenciesProcess.stderr);
 
     // Get dependencies
     logger.info('Run pub get...');
     await Process.run(
-      'flutter',
-      ['-c', 'pub', 'get'],
+      flutterExecutable,
+      ['pub', 'get'],
       runInShell: true,
       workingDirectory: root,
+    ).then(
+      (result) {
+        stdout.write(result.stdout);
+        stdout.write(result.stderr);
+        return result.exitCode;
+      },
     );
-    // await stdout.addStream(pubGetProcess.stdout);
-    // await stderr.addStream(pubGetProcess.stderr);
   }
   // Call build_runner generation
   logger.info('Run build runner...');
-   await Process.run(
+  await Process.run(
     'dart',
     ['run', 'build_runner', 'build', '--delete-conflicting-outputs'],
     runInShell: true,
     workingDirectory: root,
-  );
-  // await stdout.addStream(builderProcess.stdout);
-  // await stdout.addStream(builderProcess.stderr);
+  ).then((result) {
+    stdout.write(result.stdout);
+    stdout.write(result.stderr);
+    return result.exitCode;
+  });
 }

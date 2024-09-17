@@ -14,9 +14,9 @@ A collection of bricks that enable developers to be more productive when writing
 
 ## Bricks 🧱
 
-Brick  | URL
-------------- | -------------
-md_feature  | https://github.com/mentallyunstable/mason_bricks/tree/main/lib/md_feature
+| Brick        | URL                                                                         |
+|--------------|-----------------------------------------------------------------------------|
+| md_feature   | https://github.com/mentallyunstable/mason_bricks/tree/main/lib/md_feature   |
 
 ## Documentation
 

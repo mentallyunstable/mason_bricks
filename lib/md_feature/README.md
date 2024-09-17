@@ -36,16 +36,19 @@ mason init
 mason add md_feature
 ```
 
-To create a feature, you must provide two values:
+To create a feature, you must provide values:
 - project_name - name of the project to import package (you can take it from `name` field inside `pubspec.yaml` of the project)
 - feature_name - name of the created feature, for example if path to your features directory is `lib/src/features/`, provide `src/features`
+- path_to_feature - path to the generated feature to add path imports
+- use_fvm - is project uses fvm for flutter versioning
 
 You can create `json` file for persistent variable values
 
 ```json
 {
   "project_name": "example_project",
-  "path_to_feature": "src/features"
+  "path_to_feature": "src/features",
+  "use_fvm": true
 }
 ```
 
@@ -60,7 +63,7 @@ mason make md_feature -c config.json -o lib/src/features/
 ```
 
 ## Output
-Created feature structure will look this
+Created feature structure will look like this
 ```
 ├ {{feature}}
 │├── bloc
