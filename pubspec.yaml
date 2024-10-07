@@ -1,6 +1,6 @@
 name: mason_bricks
 description: Brick for creating feature structure from template.
-version: 1.0.1
+version: 1.0.2
 repository: https://github.com/mentallyunstable/mason_bricks
 
 environment:

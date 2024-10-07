@@ -11,6 +11,6 @@ final class {{name.pascalCase()}}Bloc extends Bloc<{{name.pascalCase()}}BlocEven
   {{name.pascalCase()}}Bloc({
     required final I{{name.pascalCase()}}Repository repository,
   }) : _repository = repository, super({{name.pascalCase()}}BlocState.empty()) {
-    on<{{name.pascalCase()}}BlocEvent>((event, emit) => event.map());
+    on<{{name.pascalCase()}}BlocEvent>((event, emit) => event.when());
   }
 }

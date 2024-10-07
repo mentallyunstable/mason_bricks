@@ -23,12 +23,21 @@ abstract class _{{name.pascalCase()}}BlocState {
 typedef _{{name.pascalCase()}}BlocStateMatcher<T, S extends _{{name.pascalCase()}}BlocState> = T Function(S state);
 
 mixin _${{name.pascalCase()}}BlocState on _{{name.pascalCase()}}BlocState {
-  T map<T>({
+  T when<T>({
     required final _{{name.pascalCase()}}BlocStateMatcher<T, Initial{{name.pascalCase()}}BlocState> initial,
   }) {
     return switch (this) {
       final Initial{{name.pascalCase()}}BlocState s => initial(s),
       final _ => throw ArgumentError(),
     };
+  }
+
+  T maybeWhen<T>({
+    required final T Function() orElse,
+    final _{{name.pascalCase()}}BlocStateMatcher<T, Initial{{name.pascalCase()}}BlocState>? initial,
+  }) {
+    return when(
+      initial: (state) => initial != null ? initial(state) : orElse(),
+    );
   }
 }

@@ -4,8 +4,15 @@ final class {{name.pascalCase()}}BlocData extends Base{{name.pascalCase()}}BlocD
   const {{name.pascalCase()}}BlocData();
 
   factory {{name.pascalCase()}}BlocData.empty() => const {{name.pascalCase()}}BlocData();
+
+  @override
+  Base{{name.pascalCase()}}BlocData copyWith() {
+    return const {{name.pascalCase()}}BlocData();
+  }
 }
 
 abstract class Base{{name.pascalCase()}}BlocData {
   const Base{{name.pascalCase()}}BlocData();
+
+  Base{{name.pascalCase()}}BlocData copyWith();
 }

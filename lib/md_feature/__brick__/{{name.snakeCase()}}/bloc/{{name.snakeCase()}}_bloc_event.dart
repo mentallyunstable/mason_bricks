@@ -11,7 +11,7 @@ abstract class _{{name.pascalCase()}}BlocEvent {
 typedef _{{name.pascalCase()}}BlocEventMatcher<T, E extends _{{name.pascalCase()}}BlocEvent> = T Function(E event);
 
 mixin _${{name.pascalCase()}}BlocEvent on _{{name.pascalCase()}}BlocEvent {
-  T map<T>() {
+  T when<T>() {
     return switch (this) {
       final _ => throw ArgumentError(),
     };
